@@ -65,5 +65,24 @@ puts images_links(items).length
 puts output_items images_links(items)
 puts '=' * 55
 
+# question 4 --------------------------------------------------
+# find all `canon` products in the items (careful with case sensitivity).
+def cannon_products items
+	items.select do |item|
+		item['product']['brand'].downcase=='canon'
+	end
+end
+
+puts 'Question #4:'
+puts cannon_products(items).length
+puts output_items cannon_products(items)
+puts '=' * 55
+
+# question 5 --------------------------------------------------
+# find all `items` that have **product** **author** **name** of "eBay" and are brand "Canon".
+
+
+
+
 
 
