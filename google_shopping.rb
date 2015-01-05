@@ -93,3 +93,10 @@ puts "All canon and eBay products: #{ebay_products(canon).length}"
 puts output_items ebay_products(canon)
 puts '=' * 55
 
+# question 6 --------------------------------------------------
+# print all the products with their **brand**, **price**, and a **image link**
+puts 'Question #6:'
+puts output_items items
+puts '=' * 55
+
+
