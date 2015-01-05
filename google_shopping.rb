@@ -41,7 +41,7 @@ puts '=' * 55
 def backorder_availability items
 	items.select do |item|
 		backorders = item['product']['inventories'].select do |inv_avail|
-			inv_avail['availability']=='backorder'
+			inv_avail['availability'] == 'backorder'
 		end
 		backorders.length > 0
 	end
@@ -67,22 +67,29 @@ puts '=' * 55
 
 # question 4 --------------------------------------------------
 # find all `canon` products in the items (careful with case sensitivity).
-def cannon_products items
+def canon_products items
 	items.select do |item|
-		item['product']['brand'].downcase=='canon'
+		item['product']['brand'].downcase == 'canon'
 	end
 end
 
 puts 'Question #4:'
-puts cannon_products(items).length
-puts output_items cannon_products(items)
+puts canon_products(items).length
+puts output_items canon_products(items)
 puts '=' * 55
 
 # question 5 --------------------------------------------------
 # find all `items` that have **product** **author** **name** of "eBay" and are brand "Canon".
+def ebay_products items
+	items.select do |item|
+		item['product']['author']['name'].downcase == 'ebay'
+	end
+end
 
-
-
-
-
+canon = canon_products(items)
+puts 'Question #5:'
+puts "All eBay products: #{ebay_products(items).length}"
+puts "All canon and eBay products: #{ebay_products(canon).length}"
+puts output_items ebay_products(canon)
+puts '=' * 55
 
